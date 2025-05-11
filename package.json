@@ -1,0 +1,26 @@
+{
+  "name": "MySQL_chatbot",
+  "version": "0.28",
+  "description": "MySQL_chatbot by Gemini 2.5 Flash exp",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/bot.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@discordjs/opus": "^0.10.0",
+    "@discordjs/rest": "^2.5.0",
+    "@discordjs/voice": "^0.18.0",
+    "@ffmpeg-installer/ffmpeg": "^1.1.0",
+    "axios": "^1.9.0",
+    "discord.js": "^14.19.3",
+    "dotenv": "^16.5.0",
+    "mongodb": "^6.16.0",
+    "mysql2": "^3.14.1",
+    "opusscript": "^0.0.8",
+    "sodium-native": "^5.0.1"
+  }
+}

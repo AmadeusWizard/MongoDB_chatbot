@@ -1,0 +1,583 @@
+/* src/web/public/style.css (NOVÝ NÁVRH pro strukturu HelixMind a tmavý vzhled) */
+
+/* Základní reset a box-sizing */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Základní styly pro body - Tmavý vzhled */
+body {
+    font-family: 'Roboto', sans-serif; /* Použijeme font Roboto */
+    line-height: 1.6;
+    background-color: #121212; /* Velmi tmavé pozadí */
+    color: #e0e0e0; /* Světle šedý text pro většinu obsahu */
+    min-height: 100vh;
+    display: flex; /* Flexbox pro hlavní rozložení (header, layout, footer) */
+    flex-direction: column; /* Uspořádání prvků pod sebe */
+}
+
+/* Záhlaví (header) - horní lišta s názvem dashboardu */
+header {
+    background-color: #1e1e1e; /* Tmavší pozadí záhlaví */
+    color: #7289da; /* Discord modrá pro nadpis */
+    padding: 15px 20px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Jemný stín pod záhlavím */
+    flex-shrink: 0; /* Zabrání zmenšení záhlaví */
+}
+
+header h1 {
+     margin: 0; /* Odebrání výchozího marginu */
+     color: #7289da; /* Barva nadpisu v záhlaví */
+}
+
+
+/* === Hlavní rozložení dashboardu (boční panel + hlavní obsah) === */
+.dashboard-layout {
+    display: flex; /* Flexbox pro sidebare a main content */
+    flex-grow: 1; /* Zajistí, že layout zabere veškerý dostupný vertikální prostor mezi headerem a footerem */
+}
+
+/* Boční navigační panel (sidebar) */
+.sidebar {
+    width: 250px; /* Pevná šířka sidebaru */
+    background-color: #1e1e1e; /* Tmavé pozadí sidebaru (stejné jako header) */
+    color: #e0e0e0; /* Barva textu v sidebaru */
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5); /* Stín napravo od sidebaru */
+    flex-shrink: 0; /* Zabrání zmenšení sidebaru */
+    overflow-y: auto; /* Přidá vertikální scrollbar, pokud je obsah sidebaru delší než výška */
+}
+
+.sidebar-header {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #ffffff; /* Bílý nadpis v záhlaví sidebaru */
+    padding-bottom: 15px;
+    border-bottom: 1px solid #3a3a3a; /* Oddělovací čára pod záhlavím sidebaru */
+}
+
+.sidebar-header h2 {
+    margin: 0; /* Odebrání marginu z h2 v sidebaru */
+}
+
+/* Navigační menu v sidebaru */
+.sidebar-nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar-nav li {
+    margin-bottom: 5px; /* Menší mezera mezi položkami menu */
+    border: none; /* Odebrání původních borderů */
+    background-color: transparent; /* Průhledné pozadí položek menu */
+    padding: 0; /* Odebrání původního paddingu */
+}
+
+.sidebar-nav a {
+    display: block; /* Aby odkaz zabral celou šířku položky */
+    color: #e0e0e0; /* Barva textu odkazů */
+    text-decoration: none; /* Bez podtržení */
+    padding: 10px 15px; /* Vnitřní odsazení odkazů */
+    border-radius: 4px; /* Mírně zaoblené rohy odkazů */
+    transition: background-color 0.2s ease; /* Plynulý přechod barvy pozadí při najetí */
+}
+
+.sidebar-nav a:hover {
+    background-color: #333333; /* Tmavší pozadí při najetí myši */
+}
+
+.sidebar-nav a.active {
+    background-color: #7289da; /* Discord modrá pro aktivní odkaz */
+    color: white; /* Bílý text pro aktivní odkaz */
+    font-weight: bold; /* Tučné písmo pro aktivní odkaz */
+}
+
+
+/* Hlavní obsahová část (main content) */
+.main-content {
+    flex-grow: 1; /* Zabere veškerý zbylý prostor na šířku */
+    padding: 20px;
+    background-color: #181818; /* Velmi tmavé pozadí */
+    overflow-y: auto; /* Přidá vertikální scrollbar, pokud je obsah delší než výška */
+}
+
+/* Záhlaví hlavní obsahové části */
+.main-header {
+    margin-bottom: 30px;
+    color: #ffffff; /* Bílý text */
+    padding-bottom: 15px;
+    border-bottom: 1px solid #3a3a3a; /* Oddělovací čára */
+}
+
+.main-header h1 {
+    margin: 0;
+}
+
+
+/* === Styly pro KARTY (.card) - inspirováno HelixMind === */
+.card {
+    background-color: #2b2b2b; /* Tmavší pozadí karty */
+    border-radius: 8px; /* Zaoblené rohy */
+    padding: 20px;
+    margin-bottom: 20px; /* Mezera pod každou kartou */
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3); /* Jemný stín karty */
+    border: 1px solid #3a3a3a; /* Jemný tmavý okraj */
+}
+
+.card h3 {
+    color: #ffffff; /* Bílý nadpis v kartě */
+    margin-top: 0;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #3a3a3a; /* Oddělovací čára pod nadpisem karty */
+    padding-bottom: 10px;
+}
+
+.card p {
+    color: #cccccc; /* Světlejší šedý text v kartě */
+    margin-bottom: 10px;
+}
+
+/* Styly pro odkazy/tlačítka uvnitř karet (např. "Zobrazit klíče") */
+.card-link {
+    display: inline-block; /* Aby se na odkaz dal aplikovat padding/margin */
+    margin-top: 10px;
+    color: #7289da; /* Discord modrá */
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 10px;
+    border: 1px solid #7289da;
+    border-radius: 4px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.card-link:hover {
+    background-color: #7289da;
+    color: white;
+}
+
+/* Kontejner pro karty s přehlednými informacemi na dashboardu */
+.dashboard-cards {
+    display: grid; /* Použití gridu pro flexibilní rozložení karet */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Karty se automaticky rozmístí a zmenší/zvětší */
+    gap: 20px; /* Mezera mezi kartami v gridu */
+    margin-bottom: 30px;
+}
+
+/* Sekce pro rychlé akce */
+.quick-actions {
+    margin-top: 30px;
+    /* Případně může být také obalena v .card */
+}
+
+.quick-actions h3 {
+    color: #ffffff;
+    margin-bottom: 15px;
+}
+
+/* Styly pro tlačítka rychlých akcí */
+.action-button {
+    background-color: #3a3a3a; /* Tmavší pozadí tlačítka */
+    color: #7289da; /* Discord modrá text */
+    border: 1px solid #7289da; /* Modrý okraj */
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    margin-right: 10px;
+}
+
+.action-button:hover {
+    background-color: #7289da;
+    color: white;
+}
+
+
+/* === Styly pro sekce uvnitř main content === */
+/* Tyto sekce (např. #memory-management) jsou nyní přímými potomky .main-content */
+.content-section {
+    margin-bottom: 30px; /* Mezera mezi jednotlivými sekcemi obsahu */
+    /* Původní padding, background atd. jsou buď odebrány nebo nahrazeny styly .main-content nebo .card */
+}
+
+/* Nadpisy sekcí (h2) */
+.content-section h2 {
+    color: #ffffff; /* Bílý nadpis */
+    margin-bottom: 20px;
+    border-bottom: 1px solid #3a3a3a; /* Oddělovací čára pod nadpisem sekce */
+    padding-bottom: 10px;
+}
+
+
+/* === Specifické styly pro prvky uvnitř sekcí === */
+
+/* Styly pro selektory (dropdowny) v sekci paměti a historie */
+.memory-selectors, .conversation-selectors {
+    margin-bottom: 20px;
+    /* Tyto kontejnery mohou být případně také obaleny v .card */
+}
+
+.memory-selectors label, .conversation-selectors label {
+    margin-right: 10px;
+    color: #e0e0e0; /* Světle šedý text */
+    font-weight: bold;
+}
+
+.memory-selectors select, .conversation-selectors select {
+    padding: 8px;
+    border: 1px solid #444444; /* Tmavší okraj */
+    background-color: #1e1e1e; /* Tmavší pozadí dropdownu */
+    color: #e0e0e0; /* Barva textu v dropdownu */
+    border-radius: 4px;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+.memory-selectors select:focus, .conversation-selectors select:focus {
+    outline: none;
+    border-color: #7289da;
+    box-shadow: 0 0 5px rgba(114, 137, 218, 0.5);
+}
+
+
+/* Styly pro tabulku paměti */
+.memory-table-container {
+     overflow-x: auto; /* Přidá horizontální scrollbar, pokud je tabulka širší než rodič */
+     /* Styly .card již aplikovány */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px; /* Mezera nad tabulkou */
+    margin-bottom: 10px; /* Mezera pod tabulkou */
+}
+
+th, td {
+    border: 1px solid #444444; /* Tmavší okraje buněk */
+    padding: 10px;
+    text-align: left;
+    color: #e0e0e0; /* Barva textu v buňkách */
+}
+
+th {
+    background-color: #3a3a3a; /* Tmavší pozadí hlavičky tabulky */
+    color: #ffffff; /* Bílý text v hlavičce */
+    font-weight: bold;
+}
+
+td {
+    background-color: #2b2b2b; /* Pozadí buněk (stejné jako karta) */
+}
+
+/* Styly pro tlačítka v tabulce (Smazat, Upravit) */
+td button {
+    background-color: #555555; /* Tmavší pozadí tlačítek akcí */
+    color: #e0e0e0; /* Světlejší text */
+    border: 1px solid #666666;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 0.9em;
+    margin-right: 5px; /* Mezera mezi tlačítky */
+    transition: background-color 0.2s ease, opacity 0.2s ease;
+}
+
+td button.delete-button {
+    background-color: #d32f2f; /* Červené pozadí pro smazat */
+    border-color: #d32f2f;
+    color: white;
+}
+
+td button.delete-button:hover {
+    background-color: #c62828; /* Tmavší červená při najetí */
+}
+
+
+td button:hover {
+    background-color: #666666; /* Tmavší pozadí při najetí */
+}
+
+
+/* Styly pro formuláře (Přidat paměť, Přidat kanál) */
+/* Tyto formuláře jsou nyní uvnitř .card */
+form label {
+    color: #e0e0e0; /* Světle šedá */
+    display: block; /* Každý label na novém řádku */
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+form input[type="text"],
+form input[type="number"],
+form select,
+form textarea {
+    padding: 8px;
+    border: 1px solid #444444;
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+    border-radius: 4px;
+    margin-bottom: 15px; /* Větší mezera pod inputy */
+    width: 100%; /* Inputy vyplní šířku rodiče */
+    display: block; /* Každý input na novém řádku */
+}
+
+form input[type="text"]:focus,
+form input[type="number"]:focus,
+form select:focus,
+form textarea:focus {
+    outline: none;
+    border-color: #7289da;
+    box-shadow: 0 0 5px rgba(114, 137, 218, 0.5);
+}
+
+form textarea {
+    resize: vertical;
+}
+
+form button[type="submit"] {
+     background-color: #4CAF50; /* Zelená barva pro tlačítko Přidat */
+     border-color: #4CAF50;
+     color: white;
+     padding: 10px 20px;
+     font-size: 1em;
+     margin-top: 10px;
+     transition: background-color 0.2s ease;
+}
+
+form button[type="submit"]:hover {
+    background-color: #388E3C; /* Tmavší zelená */
+}
+
+
+/* Styly pro seznam aktivních kanálů */
+.active-channels-list ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 0; /* Odebrat margin-bottom */
+}
+
+.active-channels-list li {
+     background-color: #3a3a3a; /* Tmavší pozadí pro položky seznamu */
+    border: 1px solid #444444;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.active-channels-list li:last-child {
+    margin-bottom: 0; /* Bez marginu pod poslední položkou */
+}
+
+.active-channels-list li button.remove-button {
+     background-color: #f44336; /* Červená barva pro Odebrat */
+     border-color: #f44336;
+     color: white;
+     padding: 5px 10px;
+     font-size: 0.9em;
+     transition: background-color 0.2s ease;
+}
+
+.active-channels-list li button.remove-button:hover {
+    background-color: #d32f2f; /* Tmavší červená */
+}
+
+
+/* Styly pro konverzační historii */
+.history-display {
+    height: 400px; /* Pevná výška pro scroll (můžeš upravit) */
+    overflow-y: auto; /* Přidá scrollbar */
+    background-color: #1e1e1e; /* Tmavší pozadí */
+    border: 1px solid #3a3a3a;
+    border-radius: 4px;
+    padding: 15px;
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column; /* Zprávy pod sebou */
+    word-wrap: break-word; /* Zalamování dlouhých slov v rámci containeru */
+    white-space: pre-wrap; /* Zachová zalomení řádků z databáze */
+}
+
+.message-entry {
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #2b2b2b; /* Oddělení zpráv */
+}
+
+.message-entry:last-child {
+    border-bottom: none; /* Bez oddělení pod poslední zprávou */
+}
+
+.timestamp {
+    color: #888888; /* Šedá barva času */
+    font-size: 0.8em;
+    margin-right: 8px; /* Větší mezera */
+    flex-shrink: 0; /* Zabrání zmenšení času */
+}
+
+/* Vylepšení zobrazení autora a obsahu */
+.message-entry {
+    display: flex; /* Flexbox pro řádek zprávy (čas + autor + obsah) */
+    align-items: flex-start; /* Zarovnání na začátek řádku */
+}
+
+.author-and-content {
+    flex-grow: 1; /* Autor a obsah zaberou zbylý prostor */
+}
+
+
+.user-author {
+    color: #7289da; /* Discord modrá pro uživatele */
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.bot-author {
+    color: #43b581; /* Discord zelená pro bota */
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+
+/* Styly pro chybové zprávy */
+.error-container {
+    background-color: #fbc02d; /* Tmavší žlutá/oranžová pro varování/chyby */
+    color: #212121; /* Tmavý text */
+    padding: 15px;
+    border-radius: 4px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    border: 1px solid #f57f17;
+}
+
+.error-container p {
+    margin: 0;
+}
+
+
+/* Patička (footer) */
+footer {
+    text-align: center;
+    padding: 15px 20px;
+    margin-top: auto; /* Zajistí, že patička bude vždy dole */
+    color: #888888; /* Světlejší šedá */
+    flex-shrink: 0; /* Zabrání zmenšení patičky */
+    background-color: #1e1e1e; /* Stejné pozadí jako header a sidebar */
+}
+
+
+/* === Responzivní design pro menší obrazovky === */
+@media (max-width: 768px) {
+    .dashboard-layout {
+        flex-direction: column; /* Na menších obrazovkách se sidebar a main content zobrazí pod sebou */
+    }
+
+    .sidebar {
+        width: 100%; /* Sidebar zabere celou šířku obrazovky */
+        height: auto; /* Výška sidebaru se přizpůsobí obsahu */
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Stín dole pod sidebarem */
+        overflow-y: visible; /* Vypneme scroll na sidebaru, pokud ho měl */
+        padding: 10px 15px; /* Menší padding */
+    }
+
+    /* Upravíme rozložení navigačních položek na menších obrazovkách */
+     .sidebar-nav ul {
+         display: flex; /* Odkazy seřadíme vedle sebe */
+         flex-wrap: wrap; /* Povolíme zalamování na více řádků */
+         justify-content: center; /* Centrujeme odkazy horizontálně */
+         padding: 10px 0; /* Přidáme padding nahoře a dole */
+     }
+
+     .sidebar-nav li {
+         margin-right: 15px; /* Mezera mezi navigačními odkazy */
+         margin-bottom: 5px; /* Malá mezera pod odkazy, pokud se zalamují */
+     }
+
+     .sidebar-nav li:last-child {
+         margin-right: 0; /* Bez mezery za posledním odkazem */
+     }
+
+     .sidebar-nav a {
+         padding: 8px 12px; /* Menší padding odkazů */
+         font-size: 0.9em;
+     }
+
+
+    .main-content {
+        padding: 15px; /* Menší padding */
+    }
+
+    .main-header {
+        margin-bottom: 20px; /* Menší mezera pod záhlavím main content */
+    }
+
+    .dashboard-cards {
+        grid-template-columns: 1fr; /* Na menších obrazovkách každá karta na samostatném řádku */
+        gap: 15px; /* Menší mezera mezi kartami */
+    }
+
+    .card {
+         padding: 15px; /* Menší padding karet */
+    }
+
+    .card h3 {
+        margin-bottom: 10px;
+        padding-bottom: 8px;
+    }
+
+    .quick-actions h3 {
+        margin-bottom: 10px;
+    }
+
+    .action-button {
+        margin-bottom: 10px; /* Mezera pod tlačítky rychlých akcí */
+        margin-right: 0; /* Bez mezery mezi tlačítky, pokud jsou pod sebou */
+        width: 100%; /* Tlačítka na celou šířku */
+    }
+
+    .memory-selectors, .conversation-selectors {
+        flex-direction: column; /* Selektory pod sebe */
+        align-items: flex-start;
+    }
+
+    .memory-selectors label, .conversation-selectors label {
+        margin-right: 0;
+        margin-bottom: 5px; /* Mezera pod labelem */
+    }
+
+    .memory-selectors select, .conversation-selectors select {
+        margin-right: 0;
+        width: 100%; /* Selecty na celou šířku */
+    }
+
+    th, td {
+        padding: 8px; /* Menší padding v tabulce */
+    }
+
+     td button {
+         padding: 4px 8px;
+         margin-right: 3px;
+         font-size: 0.8em;
+     }
+
+    .history-display {
+        height: 300px; /* Možná menší výška pro historii na mobilu */
+    }
+
+    .message-entry {
+        flex-direction: column; /* Čas, autor a obsah pod sebe */
+        align-items: flex-start;
+    }
+
+    .timestamp {
+         margin-right: 0;
+         margin-bottom: 3px;
+    }
+}

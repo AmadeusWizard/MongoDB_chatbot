@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iris AI Bot Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="dashboard-layout">
+
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>Menu</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="#dashboard" class="nav-link active" data-section="dashboard-overview">Dashboard</a></li>
+                    <li><a href="#memory" class="nav-link" data-section="memory-management">Správa paměti</a></li>
+                    <li><a href="#channels" class="nav-link" data-section="active-channels-management">Aktivní kanály</a></li>
+                    <li><a href="#history" class="nav-link" data-section="conversation-history">Historie konverzace</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="main-header">
+                <h1>Iris AI Bot Dashboard</h1>
+            </header>
+
+            <section id="dashboard-overview" class="content-section active">
+                 <h2>Dashboard Přehled</h2>
+                 <div class="dashboard-cards">
+                     <div class="card">
+                         <h3>Informace o botovi</h3>
+                         <div id="bot-info">
+                             <p><strong>DS Name:</strong> Načítám... </p>
+                             <p><strong>Status:</strong> Načítám... </p>
+                             <p><strong>Počet serverů:</strong> Načítám... </p>
+                             <p><strong>Celkem uživatelů v DB:</strong> Načítám... </p>
+                             <p><strong>Počet NPC:</strong> Načítám... </p>
+                             <p><strong>Aktivních kanálů:</strong> Načítám... </p>
+                             <p><strong>Uptime:</strong> Načítám... </p>
+                             </div>
+                     </div>
+                      <div class="card">
+                           <h3>API Klíče</h3>
+                           <p>Správa Tvých API klíčů.</p>
+                           <a href="https://helixmind.online/dashboard/keys" class="card-link">helixmind.online</a>
+                           <a href="https://status.helixmind.online" class="card-link">status.helixmind.online</a>
+                      </div>
+                       <div class="card">
+                           <h3>Logy použití</h3>
+                           <p>Sledování využití API a aktivity bota.</p>
+                           <a href="https://helixmind.online/dashboard/logs" class="card-link">Zobrazit logy</a>
+                           <a href="https://cloud.mongodb.com/v2/681f9e1b5d68665ba78124e4#/clusters" class="card-link">Atlas_MongoDB</a>
+                      </div>
+                 </div>
+                 <div class="quick-actions">
+                      <h3>Rychlé Akce</h3>
+                      <button class="action-button">Přidat nový záznam paměti</button>
+                      <button class="action-button">Restartovat Bota</button>
+                 </div>
+            </section>
+
+            <section id="memory-management" class="content-section">
+                <h2>Správa paměti</h2>
+                <p>Vyberte NPC nebo Uživatele pro zobrazení a úpravu jejich dlouhodobé paměti.</p>
+
+                <div class="memory-selectors">
+                    <label for="memory-npc-select">Vyber NPC:</label>
+                    <select id="memory-npc-select">
+                        <option value="">-- Načítám NPC --</option>
+                    </select>
+
+                    <label for="memory-user-select">Vyber Uživatele:</label>
+                    <select id="memory-user-select">
+                        <option value="">-- Načítám Uživatele --</option>
+                    </select>
+                </div>
+
+                <h3 id="memory-subject-heading">Vyberte NPC nebo Uživatele</h3>
+                <div class="memory-table-container card">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Klíč</th>
+                                <th>Hodnota</th>
+                                <th>Akce</th>
+                            </tr>
+                        </thead>
+                        <tbody id="memory-table-body">
+                            <tr><td colspan="3">Načítám data nebo čekám na výběr...</td></tr>
+                            </tbody>
+                    </table>
+                </div>
+
+                <div id="add-memory-form-container" class="card" style="display: none;">
+                    <h4>Přidat nový záznam paměti</h4>
+                    <form id="add-memory-form">
+                        <label for="new-memory-key">Klíč:</label>
+                        <input type="text" id="new-memory-key" required><br><br>
+
+                        <label for="new-memory-value">Hodnota:</label><br>
+                        <textarea id="new-memory-value" rows="4" cols="50" required></textarea><br><br>
+
+                         <label for="new-memory-relevance">Relevance (0.0 - 1.0):</label>
+                         <input type="number" id="new-memory-relevance" min="0.0" max="1.0" step="0.01" value="0.5" required><br><br>
+
+
+                        <button type="submit">Přidat záznam</button>
+                    </form>
+                </div>
+            </section>
+
+                <section id="npc-management" class="content-section">
+                  <h2>Správa NPC</h2>
+                  <p>Zde budou detaily o NPC a možnost úprav.</p>
+                </section>
+
+
+            <section id="active-channels-management" class="content-section">
+                <h2>Správa Aktivních Kanálů</h2>
+                <p>Zde můžete přidat nebo odebrat kanály, ve kterých má být bot aktivní pro chat.</p>
+
+                <div class="card">
+                    <h4>Přidat kanál</h4>
+                    <form id="add-active-channel-form">
+                        <label for="new-active-channel-guild-id">ID Guildy:</label>
+                        <input type="text" id="new-active-channel-guild-id" required><br><br>
+
+                        <label for="new-active-channel-id">ID Kanálu:</label>
+                        <input type="text" id="new-active-channel-id" required><br><br>
+
+                         <label for="new-active-channel-npc-select">Vyber NPC:</label>
+                         <select id="new-active-channel-npc-select">
+                             <option value="">-- Vyberte NPC --</option>
+                         </select><br><br>
+
+                        <button type="submit">Přidat kanál</button>
+                    </form>
+                </div>
+
+                <div class="card">
+                    <h4>Seznam aktivních kanálů</h4>
+                    <ul id="active-channels-ul">
+                        <li>Načítám aktivní kanály...</li>
+                        </ul>
+                </div>
+            </section>
+
+
+            <section id="conversation-history" class="content-section">
+                <h2>Konverzační historie</h2>
+                <p>Vyberte kanál pro zobrazení nedávné konverzace.</p>
+
+                <div class="card">
+                    <div class="conversation-selectors">
+                        <label for="conversation-channel-select">Vyber Kanál:</label>
+                        <select id="conversation-channel-select">
+                            <option value="">-- Načítám Kanály --</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="conversation-history-display" class="history-display card">
+                    <p>Vyberte kanál pro zobrazení historie.</p> {/* Zástupný text */}
+                    </div>
+            </section>
+
+            <div id="error-messages" class="error-container" style="display: none;">
+                 </div>
+
+        </main>
+    </div>
+
+    <footer>
+        <p>© 2025 Iris AI Bot Dashboard</p>
+    </footer>
+
+    <script src="script.js?v=9939"></script>
+</body>
+</html>
